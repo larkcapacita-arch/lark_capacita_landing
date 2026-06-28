@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master English Vocabulary in 30 Days | Lark Capacita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B3E;
+    --green: #2DB34A;
+    --sky: #2196F3;
+    --gold: #F5A623;
+    --cream: #FFFFFF;
+    --soft: #F4F8FF;
+    --muted: #6B7A99;
+    --border: #E2E8F4;
+    --dark-card: #0A1428;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── STICKY HEADER ── */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,62,0.97);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .topbar-logo { display: flex; align-items: center; gap: 10px; }
+  .topbar-logo img { height: 38px; width: 38px; object-fit: contain; border-radius: 50%; }
+  .topbar-logo span { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; }
+  .topbar-logo span em { color: var(--green); font-style: normal; }
+  .topbar-cta {
+    background: var(--green);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 9px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.15s, background 0.15s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .topbar-cta:hover { background: #24a040; transform: scale(1.04); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0D1B3E 0%, #0a2240 55%, #0D1B3E 100%);
+    padding: 130px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 10%, rgba(33,150,243,0.15), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(45,179,74,0.1), transparent);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.4);
+    color: var(--gold);
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 7px 18px; border-radius: 50px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .hero-badge .dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 1.6s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    max-width: 800px;
+    margin: 0 auto 22px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 .hl { color: var(--green); }
+  .hero h1 .hl2 { color: var(--sky); }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+  }
+
+  .hero-proof {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+    margin-bottom: 44px;
+  }
+  .proof-pill {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+    padding: 9px 18px; border-radius: 50px;
+    font-size: 0.85rem; font-weight: 500;
+  }
+  .proof-pill .ico { font-size: 1rem; }
+
+  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #25D366, #1da851);
+    color: #fff; font-weight: 700; font-size: 1.05rem;
+    padding: 16px 34px; border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,211,102,0.45); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85); font-weight: 600; font-size: 1rem;
+    padding: 14px 28px; border-radius: 50px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+
+  /* ── LOGO BIG DISPLAY ── */
+  .logo-reveal {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 60px 24px 40px;
+    background: var(--soft);
+  }
+  .logo-reveal img { width: clamp(120px, 20vw, 180px); }
+  .logo-reveal p { color: var(--muted); font-size: 0.9rem; margin-top: 14px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 80px 24px; }
+  .container { max-width: 1040px; margin: 0 auto; }
+  .section-label { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; font-weight: 700; color: var(--green); margin-bottom: 12px; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+    font-weight: 800; line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 620px; }
+
+  /* ── PAIN POINTS ── */
+  .pain { background: var(--navy); color: #fff; }
+  .pain .section-title { color: #fff; }
+  .pain .section-sub { color: rgba(255,255,255,0.65); }
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; margin-top: 48px;
+  }
+  .pain-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 28px 24px;
+    transition: border-color 0.2s;
+  }
+  .pain-card:hover { border-color: rgba(33,150,243,0.4); }
+  .pain-icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .pain-card h3 { color: #fff; font-weight: 700; margin-bottom: 8px; font-size: 1rem; }
+  .pain-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6; }
+
+  /* ── TRANSFORMATION ── */
+  .transform { background: #fff; }
+  .transform-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border-radius: 20px; overflow: hidden;
+    border: 1.5px solid var(--border);
+    margin-top: 50px;
+    box-shadow: 0 10px 40px rgba(13,27,62,0.06);
+  }
+  .tf-before { background: #fdf2f2; padding: 40px 36px; }
+  .tf-after { background: #f0fdf4; padding: 40px 36px; }
+  .tf-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+  .tf-before .tf-label { color: #dc2626; }
+  .tf-after .tf-label { color: #15803d; }
+  .tf-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; font-size: 0.95rem; }
+  .tf-before .tf-item { color: #7f1d1d; }
+  .tf-after .tf-item { color: #14532d; }
+  .tf-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .tf-before .tf-dot { background: #dc2626; }
+  .tf-after .tf-dot { background: #22c55e; }
+  @media(max-width:640px){ .transform-grid{grid-template-columns:1fr} }
+
+  /* ── CURRICULUM ── */
+  .curriculum { background: var(--soft); }
+  .modules {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px; margin-top: 50px;
+  }
+  .module-card {
+    background: #fff; border-radius: 16px;
+    padding: 26px 24px;
+    border: 1.5px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .module-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(13,27,62,0.1); border-color: var(--sky); }
+  .mod-week {
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--sky); margin-bottom: 10px;
+  }
+  .module-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .module-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .mod-tag {
+    display: inline-block; margin-top: 14px;
+    background: var(--soft); color: var(--green);
+    font-size: 0.75rem; font-weight: 700;
+    padding: 4px 12px; border-radius: 50px;
+    border: 1px solid rgba(45,179,74,0.25);
+  }
+
+  /* ── WHO IS THIS FOR ── */
+  .forwhom { background: #fff; }
+  .who-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px; margin-top: 48px;
+  }
+  .who-card {
+    border-radius: 18px; padding: 32px 22px; text-align: center;
+    transition: transform 0.2s;
+  }
+  .who-card:hover { transform: translateY(-4px); }
+  .who-card.c1 { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); }
+  .who-card.c2 { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); }
+  .who-card.c3 { background: linear-gradient(135deg, #FFF7ED, #FED7AA); }
+  .who-card.c4 { background: linear-gradient(135deg, #FDF4FF, #F3E8FF); }
+  .who-icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .who-card h3 { font-weight: 700; font-size: 1rem; margin-bottom: 8px; color: var(--navy); }
+  .who-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── OUTCOME NUMBERS ── */
+  .outcomes { background: var(--navy); }
+  .stats-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px; margin-top: 50px; text-align: center;
+  }
+  .stat-box { padding: 30px 16px; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: 800; color: var(--green); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.5; }
+
+  /* ── WHAT YOU GET ── */
+  .whatyouget { background: var(--soft); }
+  .get-list {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px; margin-top: 50px;
+  }
+  .get-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: #fff; border-radius: 14px; padding: 22px 20px;
+    border: 1.5px solid var(--border);
+  }
+  .get-ico { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+  .get-item h4 { font-weight: 700; margin-bottom: 4px; font-size: 0.97rem; }
+  .get-item p { color: var(--muted); font-size: 0.85rem; line-height: 1.55; }
+
+  /* ── TESTIMONIALS / SOCIAL PROOF ── */
+  .social { background: #fff; }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px; margin-top: 50px;
+  }
+  .testi-card {
+    background: var(--soft);
+    border-radius: 18px; padding: 28px 24px;
+    border: 1.5px solid var(--border);
+    position: relative;
+  }
+  .testi-card::before {
+    content: '"'; position: absolute; top: 16px; right: 22px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem; color: var(--green); opacity: 0.2; line-height: 1;
+  }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+  .testi-card p { color: #374151; font-size: 0.93rem; line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+  .testi-author { display: flex; gap: 12px; align-items: center; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--sky));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+  }
+  .testi-name { font-weight: 700; font-size: 0.88rem; color: var(--navy); }
+  .testi-role { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── INSTRUCTOR ── */
+  .instructor { background: var(--soft); }
+  .instr-wrap {
+    display: flex; gap: 48px; align-items: center; margin-top: 50px;
+  }
+  .instr-img-box {
+    flex-shrink: 0; width: 180px; height: 180px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--sky));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+    box-shadow: 0 10px 40px rgba(13,27,62,0.18);
+  }
+  .instr-content .name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+  .instr-content .title { color: var(--green); font-weight: 600; margin-bottom: 16px; }
+  .instr-content p { color: var(--muted); line-height: 1.75; font-size: 0.96rem; }
+  .instr-creds { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .cred-chip {
+    background: #fff; border: 1.5px solid var(--border);
+    padding: 6px 14px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 600; color: var(--navy);
+  }
+  @media(max-width:640px){ .instr-wrap{flex-direction:column;text-align:center} .instr-creds{justify-content:center} }
+
+  /* ── PRICING / CTA ── */
+  .pricing { background: var(--navy); }
+  .price-card {
+    max-width: 560px; margin: 50px auto 0;
+    background: #fff; border-radius: 24px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .price-header {
+    background: linear-gradient(135deg, var(--green), #1da851);
+    padding: 36px 36px 28px; text-align: center;
+  }
+  .price-header .tag { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 10px; }
+  .price-header h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 800; color: #fff; }
+  .price-header .sub { color: rgba(255,255,255,0.8); font-size: 0.92rem; margin-top: 8px; }
+  .price-body { padding: 36px; }
+  .price-features { list-style: none; margin-bottom: 28px; }
+  .price-features li {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 0.93rem; color: #374151;
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .price-features li .chk { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+  .enquire-btn {
+    display: block; width: 100%; text-align: center;
+    background: linear-gradient(135deg, #25D366, #1da851);
+    color: #fff; font-weight: 800; font-size: 1.1rem;
+    padding: 18px; border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .enquire-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,0.45); }
+  .enquire-btn .wa-ico { font-size: 1.2rem; margin-right: 6px; }
+  .price-note { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 16px; }
+
+  /* ── FAQ ── */
+  .faq { background: #fff; }
+  .faq-list { max-width: 720px; margin: 50px auto 0; }
+  .faq-item { border-bottom: 1.5px solid var(--border); }
+  .faq-q {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 22px 0; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Inter', sans-serif; font-size: 1rem;
+    font-weight: 600; color: var(--navy);
+  }
+  .faq-q .arrow { transition: transform 0.3s; font-size: 1.2rem; color: var(--green); }
+  .faq-item.open .arrow { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s; }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 20px; }
+  .faq-a p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: linear-gradient(135deg, #0D1B3E 0%, #0a2240 100%);
+    padding: 100px 24px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,179,74,0.15), transparent);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800; color: #fff; margin-bottom: 18px; line-height: 1.2;
+  }
+  .final-cta p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 500px; margin: 0 auto 40px; line-height: 1.7; }
+  .final-cta .bigbtn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: linear-gradient(135deg, #25D366, #1da851);
+    color: #fff; font-weight: 800; font-size: 1.2rem;
+    padding: 20px 44px; border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 10px 40px rgba(37,211,102,0.4);
+    transition: transform 0.2s;
+  }
+  .final-cta .bigbtn:hover { transform: translateY(-3px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060e1f; color: rgba(255,255,255,0.5);
+    padding: 30px 24px; text-align: center; font-size: 0.82rem;
+  }
+  footer a { color: var(--green); text-decoration: none; }
+  footer .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  footer .footer-logo span { color: var(--green); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 24px; z-index: 200;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    text-decoration: none;
+    font-size: 1.7rem;
+    animation: floatbounce 2.5s ease-in-out infinite;
+    transition: transform 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+  @keyframes floatbounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  /* ── RIBBON / URGENCY ── */
+  .urgency-bar {
+    background: linear-gradient(90deg, var(--gold), #e8960a);
+    color: var(--navy); font-weight: 700; font-size: 0.85rem;
+    text-align: center; padding: 11px 16px;
+    position: sticky; top: 60px; z-index: 99;
+    letter-spacing: 0.02em;
+  }
+
+  /* Responsive */
+  @media(max-width:640px){
+    .hero { padding: 100px 18px 60px; }
+    section { padding: 60px 18px; }
+    .topbar { padding: 10px 16px; }
+    .price-body { padding: 24px; }
+    .price-header { padding: 28px 24px; }
+    .tf-before, .tf-after { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY TOP BAR -->
+<nav class="topbar">
+  <div class="topbar-logo">
+    <img src="/mnt/user-data/uploads/IMG_8568.jpeg" alt="Lark Capacita Logo" onerror="this.style.display='none'">
+    <span>Lark <em>Capacita</em></span>
+  </div>
+  <a href="https://wa.me/919894530589?text=Hi%20Lark%20Capacita!%20I%20want%20to%20know%20more%20about%20the%20Vocabulary%20Mastery%20Course" class="topbar-cta" target="_blank" rel="noopener">
+    💬 Enquire Now
+  </a>
+</nav>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  🔥 Next Batch Starting Soon — Limited Seats Available! Register Now
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Online Crash Course · Lark Capacita
+    </div>
+    <h1>
+      Command <span class="hl">Every Word</span>.<br>
+      Unlock <span class="hl2">Every Opportunity</span>.
+    </h1>
+    <p class="hero-sub">
+      A high-impact 30-day online vocabulary course designed for students, exam aspirants, and professionals who want to think sharper, speak better, and write with power.
+    </p>
+
+    <div class="hero-proof">
+      <div class="proof-pill"><span class="ico">📖</span> Root-Based Learning Method</div>
+      <div class="proof-pill"><span class="ico">🏆</span> Exam-Focused Vocabulary</div>
+      <div class="proof-pill"><span class="ico">🧠</span> Retain Words for Life</div>
+      <div class="proof-pill"><span class="ico">⚡</span> Live Online Sessions</div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/919894530589?text=Hi!%20I%20want%20to%20join%20the%20Vocabulary%20Mastery%20Crash%20Course%20by%20Lark%20Capacita." class="btn-primary" target="_blank" rel="noopener">
+        <span>💬</span> Enquire on WhatsApp
+      </a>
+      <a href="#curriculum" class="btn-secondary">
+        <span>📋</span> See Course Details
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO DISPLAY -->
+<div class="logo-reveal">
+  <img src="/mnt/user-data/uploads/IMG_8568.jpeg" alt="Lark Capacita — Aspire Inspire" onerror="this.style.display='none'">
+  <p>Aspire · Inspire · Lark Capacita</p>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="container">
+    <div class="section-label">Does This Sound Familiar?</div>
+    <h2 class="section-title">The Silent Barrier Holding You Back</h2>
+    <p class="section-sub">Most students and professionals never reach their full potential — not from lack of intelligence, but from a limited vocabulary.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">😰</div>
+        <h3>Stuck on Exam Passages</h3>
+        <p>You read, but you don't fully understand. Unknown words break your comprehension and cost you marks.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📝</div>
+        <h3>Weak Essays & Reports</h3>
+        <p>You have ideas but can't express them precisely. Your writing feels flat and basic compared to peers.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🎙️</div>
+        <h3>Nervous When Speaking</h3>
+        <p>You can't find the right word in the moment. Meetings, interviews, and debates feel like a struggle.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">😤</div>
+        <h3>Rote-Learning That Forgets</h3>
+        <p>You've memorised word lists before — and forgotten them in a week. There has to be a better way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section class="transform">
+  <div class="container">
+    <div class="section-label">The Shift You'll Experience</div>
+    <h2 class="section-title">Before This Course vs. After</h2>
+
+    <div class="transform-grid">
+      <div class="tf-before">
+        <div class="tf-label">❌ Before</div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Guessing words in exams and passages</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Forgetting vocabulary after cramming</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Speaking hesitantly in interviews</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Writing essays that lack impact</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Struggling with CAT, GRE, UPSC verbal sections</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Feeling less confident around fluent speakers</div></div>
+      </div>
+      <div class="tf-after">
+        <div class="tf-label">✅ After</div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Decoding unfamiliar words using roots instantly</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Retaining every word learned permanently</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Speaking with precision and confidence</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Writing essays that leave lasting impressions</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Excelling in any verbal exam — guaranteed</div></div>
+        <div class="tf-item"><div class="tf-dot"></div><div>Projecting intelligence and leadership in every room</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="container">
+    <div class="section-label">Course Curriculum</div>
+    <h2 class="section-title">What You'll Learn — Week by Week</h2>
+    <p class="section-sub">A structured 30-day crash course built on etymology, root mastery, and real-world application.</p>
+
+    <div class="modules">
+      <div class="module-card">
+        <div class="mod-week">Week 1</div>
+        <h3>Foundations — The Root Revolution</h3>
+        <p>Discover how Greek & Latin roots unlock thousands of words. Master the building blocks and immediately expand your vocabulary 10x.</p>
+        <span class="mod-tag">12 Core Roots · 120+ Words</span>
+      </div>
+      <div class="module-card">
+        <div class="mod-week">Week 2</div>
+        <h3>Power Words for Academic & Exam Success</h3>
+        <p>High-frequency words for GRE, CAT, UPSC, IELTS and SSC. Learn in context, not from lists. Retain them forever.</p>
+        <span class="mod-tag">Exam-Specific Vocabulary</span>
+      </div>
+      <div class="module-card">
+        <div class="mod-week">Week 3</div>
+        <h3>Communication & Professional Vocabulary</h3>
+        <p>Words for meetings, emails, presentations and leadership. Sound articulate and authoritative in every professional setting.</p>
+        <span class="mod-tag">Workplace Language Mastery</span>
+      </div>
+      <div class="module-card">
+        <div class="mod-week">Week 4</div>
+        <h3>Advanced Application & Fluency Sprint</h3>
+        <p>Advanced etymology, nuanced word choices, and full fluency drills. Use words not just correctly — but beautifully.</p>
+        <span class="mod-tag">Advanced Level · Live Practice</span>
+      </div>
+      <div class="module-card">
+        <div class="mod-week">Bonus</div>
+        <h3>Pronunciation & Confidence Module</h3>
+        <p>Sound as good as you write. Stress patterns, phonetics, and spoken English drills to eliminate hesitation permanently.</p>
+        <span class="mod-tag">🎁 Bonus Included</span>
+      </div>
+      <div class="module-card">
+        <div class="mod-week">Bonus</div>
+        <h3>Vocabulary for Competitive Exams</h3>
+        <p>Targeted word banks and strategies for GRE, CAT, UPSC, IELTS, SSC, Banking, SAT and more — all in one place.</p>
+        <span class="mod-tag">🎁 Exam Prep Bonus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS IT FOR -->
+<section class="forwhom" id="forwhom">
+  <div class="container">
+    <div class="section-label">Is This For You?</div>
+    <h2 class="section-title">This Course Is Built For...</h2>
+
+    <div class="who-grid">
+      <div class="who-card c1">
+        <div class="who-icon">🎓</div>
+        <h3>School & College Students</h3>
+        <p>Get ahead of your peers before exams. Write essays teachers remember. Speak confidently in group discussions.</p>
+      </div>
+      <div class="who-card c2">
+        <div class="who-icon">🏆</div>
+        <h3>Competitive Exam Aspirants</h3>
+        <p>Crack the verbal sections of CAT, GRE, GMAT, IELTS, UPSC, SSC and Banking exams with confidence.</p>
+      </div>
+      <div class="who-card c3">
+        <div class="who-icon">💼</div>
+        <h3>Working Professionals</h3>
+        <p>Communicate with authority, write impactful emails, and climb the corporate ladder with sharper language skills.</p>
+      </div>
+      <div class="who-card c4">
+        <div class="who-icon">✈️</div>
+        <h3>Study Abroad Aspirants</h3>
+        <p>Score higher on IELTS, TOEFL and SAT. Impress universities with precise, sophisticated academic writing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="outcomes">
+  <div class="container" style="text-align:center">
+    <div class="section-label" style="color:var(--green)">Proven Outcomes</div>
+    <h2 class="section-title" style="color:#fff">The Numbers Speak</h2>
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num">3500+</div>
+        <div class="stat-label">Words & Word Families<br>Covered in the Course</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">30</div>
+        <div class="stat-label">Transformative Days<br>to Vocabulary Mastery</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">10x</div>
+        <div class="stat-label">Words Unlocked per<br>Root You Learn</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Exam-Relevant Vocabulary<br>You'll Actually Use</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="whatyouget">
+  <div class="container">
+    <div class="section-label">Everything Included</div>
+    <h2 class="section-title">What You Get in This Course</h2>
+
+    <div class="get-list">
+      <div class="get-item">
+        <span class="get-ico">📹</span>
+        <div><h4>Live Interactive Sessions</h4><p>Learn directly from your instructor — ask questions, get instant clarity.</p></div>
+      </div>
+      <div class="get-item">
+        <span class="get-ico">📚</span>
+        <div><h4>Structured Learning Material</h4><p>Curated notes, word lists, and etymology guides organized by topic.</p></div>
+      </div>
+      <div class="get-item">
+        <span class="get-ico">🧠</span>
+        <div><h4>Daily Practice Exercises</h4><p>Crosswords, fill-in-the-blanks, and contextual usage drills — every single day.</p></div>
+      </div>
+      <div class="get-item">
+        <span class="get-ico">🎯</span>
+        <div><h4>Exam-Specific Word Banks</h4><p>GRE, CAT, UPSC, SSC, IELTS — targeted vocabulary that examiners actually test.</p></div>
+      </div>
+      <div class="get-item">
+        <span class="get-ico">🎙️</span>
+        <div><h4>Pronunciation Training</h4><p>Sound as polished as you are. Stress patterns and phonetics made simple.</p></div>
+      </div>
+      <div class="get-item">
+        <span class="get-ico">🤝</span>
+        <div><h4>Community & Peer Learning</h4><p>A private group of fellow learners to practice, share, and grow together.</p></div>
+      </div>
+      <div class="get-item">
+        <span class="get-ico">📜</span>
+        <div><h4>Certificate of Completion</h4><p>Lark Capacita certified — showcase your achievement with pride.</p></div>
+      </div>
+      <div class="get-item">
+        <span class="get-ico">♾️</span>
+        <div><h4>Lifetime Access to Materials</h4><p>Course notes and resources stay with you. Revise anytime, anywhere.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="social">
+  <div class="container">
+    <div class="section-label">What Learners Say</div>
+    <h2 class="section-title">Real Results, Real People</h2>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>I cracked CAT's verbal section after this course. The root-based method is pure genius — I can decode any new word now instead of guessing.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Aditya R.</div>
+            <div class="testi-role">CAT 2024 Aspirant, Chennai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>My IELTS writing score jumped from 6 to 7.5 after this course. The vocabulary for academic writing module alone was worth every rupee.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Priya M.</div>
+            <div class="testi-role">Study Abroad Aspirant, Coimbatore</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>As a working professional, I was skeptical. But within 2 weeks, my colleagues noticed the difference in how I present and write emails. Incredible!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">K</div>
+          <div>
+            <div class="testi-name">Karthik S.</div>
+            <div class="testi-role">Software Engineer, Tiruppur</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor">
+  <div class="container">
+    <div class="section-label">Your Guide</div>
+    <h2 class="section-title">Meet Your Instructor</h2>
+    <div class="instr-wrap">
+      <div class="instr-img-box">🧑‍🏫</div>
+      <div class="instr-content">
+        <div class="name">Lark Capacita Team</div>
+        <div class="title">Language & Communication Educators</div>
+        <p>At Lark Capacita, our educators are passionate about one thing: unlocking the power inside every learner. With deep expertise in English language education, competitive exam preparation, and corporate communication training, we've helped hundreds of students and professionals across Tamil Nadu transform how they speak, think, and write.<br><br>Our motto — <strong>Aspire · Inspire</strong> — isn't just a tagline. It's the promise we make to every learner who walks through our doors.</p>
+        <div class="instr-creds">
+          <span class="cred-chip">🎓 Language Education Experts</span>
+          <span class="cred-chip">🏆 Exam Prep Specialists</span>
+          <span class="cred-chip">💼 Corporate Trainers</span>
+          <span class="cred-chip">📍 Based in Tamil Nadu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / ENQUIRY -->
+<section class="pricing">
+  <div class="container" style="text-align:center">
+    <div class="section-label" style="color:var(--green)">Enroll Today</div>
+    <h2 class="section-title" style="color:#fff">Ready to Transform Your Vocabulary?</h2>
+
+    <div class="price-card">
+      <div class="price-header">
+        <div class="tag">🔥 30-Day Online Crash Course</div>
+        <h2>Vocabulary Mastery Program</h2>
+        <div class="sub">by Lark Capacita · Aspire · Inspire</div>
+      </div>
+      <div class="price-body">
+        <ul class="price-features">
+          <li><span class="chk">✓</span> 30 Days of Structured Live Sessions</li>
+          <li><span class="chk">✓</span> Root-Based Vocabulary Method (3500+ Words)</li>
+          <li><span class="chk">✓</span> Daily Practice Exercises & Quizzes</li>
+          <li><span class="chk">✓</span> Exam-Ready Word Banks (GRE, CAT, UPSC, IELTS)</li>
+          <li><span class="chk">✓</span> Pronunciation & Confidence Module</li>
+          <li><span class="chk">✓</span> Private Community Access</li>
+          <li><span class="chk">✓</span> Lifetime Access to Course Materials</li>
+          <li><span class="chk">✓</span> Certificate of Completion</li>
+        </ul>
+        <a href="https://wa.me/919894530589?text=Hi!%20I%20want%20to%20join%20the%20Vocabulary%20Mastery%20Crash%20Course%20by%20Lark%20Capacita.%20Please%20share%20the%20details." class="enquire-btn" target="_blank" rel="noopener">
+          <span class="wa-ico">💬</span> Enquire on WhatsApp Now
+        </a>
+        <p class="price-note">📞 WhatsApp Only: +91 98945 30589 &nbsp;|&nbsp; 🌐 <a href="https://www.larkcapacita.com" style="color:var(--green)">www.larkcapacita.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label" style="text-align:center">Common Questions</div>
+    <h2 class="section-title" style="text-align:center">Frequently Asked Questions</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Who is this course best suited for? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>This course is ideal for school students (Grades 8–12), college students, competitive exam aspirants (CAT, GRE, GMAT, UPSC, SSC, IELTS, TOEFL), and working professionals who want to improve their communication and language skills.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is this an online or offline course? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>This is a fully online course. Sessions are conducted live so you can attend from anywhere in India or abroad. All materials are accessible digitally.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How is this different from just reading a vocabulary book? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Books don't give you live guidance, accountability, or practice. Our course combines the proven root-based methodology with live sessions, daily drills, personalized feedback, and a community — ensuring you actually retain and apply what you learn.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How much time do I need to dedicate daily? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Just 45–60 minutes per day. The sessions are designed to fit around your school or work schedule. Even 30 minutes of daily practice will show significant results within the first week.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I enroll or get more details? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Simply tap the WhatsApp button on this page or message us directly at +91 98945 30589. Our team will share batch schedules, fee details, and answer all your questions personally. You can also visit <a href="https://www.larkcapacita.com" style="color:var(--green)">www.larkcapacita.com</a>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will this really help me in competitive exams? <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Absolutely. Vocabulary is a key component of the verbal sections of GRE, GMAT, CAT, UPSC, SSC, IELTS and TOEFL. Our course specifically targets exam-level words and teaches you strategies to tackle reading comprehension passages with confidence.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Every Word You Learn<br>Opens a Door.</h2>
+    <p>Don't let a limited vocabulary hold back an unlimited mind. Your 30-day transformation starts with one message.</p>
+    <a href="https://wa.me/919894530589?text=Hi!%20I%20want%20to%20enroll%20in%20the%20Vocabulary%20Mastery%20Course%20by%20Lark%20Capacita.%20Please%20share%20details!" class="bigbtn" target="_blank" rel="noopener">
+      💬 &nbsp;Start Your Journey — WhatsApp Us
+    </a>
+    <p style="color:rgba(255,255,255,0.45); font-size:0.83rem; margin-top:20px;">+91 98945 30589 · WhatsApp Only · <a href="https://www.larkcapacita.com" style="color:var(--green)">www.larkcapacita.com</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Lark <span>Capacita</span></div>
+  <p style="margin-bottom:8px">Aspire · Inspire · Transform</p>
+  <p>
+    📞 <a href="https://wa.me/919894530589">+91 98945 30589</a> (WhatsApp Only) &nbsp;·&nbsp;
+    🌐 <a href="https://www.larkcapacita.com">www.larkcapacita.com</a>
+  </p>
+  <p style="margin-top:12px; font-size:0.75rem; opacity:0.5">© 2025 Lark Capacita. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919894530589?text=Hi!%20I%20want%20to%20join%20the%20Vocabulary%20Mastery%20Course%20by%20Lark%20Capacita." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  💬
+</a>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Subtle scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pain-card, .module-card, .who-card, .get-item, .testi-card, .stat-box').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
